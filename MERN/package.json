@@ -4,8 +4,11 @@
   "description": "built with the MERN statck",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "xianglin <281532612@qq.com> (zhourong.clube)",
   "license": "MIT",
