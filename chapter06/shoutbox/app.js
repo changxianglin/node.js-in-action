@@ -22,11 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/first', indexRouter)
-app.use('/', entries.list);
 app.use('/users', usersRouter);
 
-app.get('/post', entries.form)
+app.use('/first', indexRouter)
+
+app.get('/', entries.list);
+
+app.get('/post', entries.form);
 app.post('/post', 
   validate.required('entry[title]'),
   validate.lengthAbove('entry[title]', 4),

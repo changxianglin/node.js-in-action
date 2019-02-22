@@ -12,7 +12,6 @@ exports.list = (req, res, next) => {
 };
 
 exports.form = (req, res) => {
-    console.log('form...')
   res.render('post', { title: 'Post' });
 };
 
