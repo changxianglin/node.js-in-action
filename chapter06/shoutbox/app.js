@@ -4,11 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const validate = require('./middleware/validate')
+// const validate = require('./middleware/validate')
 var entries = require('./routes/entries')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var entries = require('./models/entry')
+// var entries = require('./models/entry')
 
 var app = express();
 
@@ -23,15 +23,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', entries.list);
+// app.use('/', entries.list);
+app.use('/', entries.list)
 app.use('/users', usersRouter);
 
-app.get('/post', entries.from)
-app.post('/post', 
-  validate.required('entry[title]'),
-  validate.lengthAbove('entry[title]', 4),
-  entries.submit
-)
+// app.get('/post', entries.from)
+// app.post('/post', 
+//   validate.required('entry[title]'),
+//   validate.lengthAbove('entry[title]', 4),
+//   entries.submit
+// )
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
