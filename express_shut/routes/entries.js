@@ -8,8 +8,8 @@ exports.form = (req, res) => {
 
 exports.submit = (req, res, next) => {
     const data = req.body.entry
-    const user = res.local.user
-    const username = user ? user.name: null
+    const user = res.locals.user
+    const username = user ? user.name : null
     const entry = new Entry({
         username: username,
         title: data.title,
