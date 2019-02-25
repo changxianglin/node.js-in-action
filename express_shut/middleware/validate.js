@@ -18,7 +18,6 @@ exports.required = (field) => {
         if(getField(req, field)) {
             next()
         } else {
-            console.log('required error')
             res.error(`${field.join(' ')} is required`)
             res.redircet('back')
         }
@@ -32,7 +31,6 @@ exports.lengthAbove = (field, len) => {
             next()
         } else {
             const fields = field.join(' ')
-            console.log('length error')
             res.error(`${fields} must have more than ${len} characters`)
             res.redircet('back')
         }
