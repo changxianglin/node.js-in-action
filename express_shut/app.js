@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session')
 const validate = require('./middleware/validate')
-const messages = require('./middleware/message')
+const messages = require('./middleware/messages')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

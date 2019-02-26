@@ -59,7 +59,7 @@ class User {
     }
 
     static get(id, cb) {
-        db.getall(`user:${id}`, (err, user) => {
+        db.hgetall(`user:${id}`, (err, user) => {
             if(err) return cb(err)
             cb(null, new User(user))
         })
@@ -79,10 +79,3 @@ class User {
 }
 
 module.exports = User
-
-
-const user = new User({ name: 'Example', pass: 'test'})
-user.save((err) => {
-    if(err) console.error(err)
-    console.log('user is %d', user.id)
-})
