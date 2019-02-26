@@ -6,11 +6,13 @@ var logger = require('morgan');
 const session = require('express-session')
 const validate = require('./middleware/validate')
 const messages = require('./middleware/messages')
+const user = require('./middleware/user')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const entries = require('./routes/entries')
 const register = require('./routes/register')
+const login = require('./routes/login')
 
 var app = express();
 
@@ -27,8 +29,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
-app.use(messages)
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(user)
+app.use(messages)
 
 app.get('/', entries.list);
 app.use('/users', usersRouter);
@@ -38,11 +41,14 @@ app.post('/post',
   validate.required('entry[title]'),
   validate.lengthAbove('entry[title]', 4),
   entries.submit
- )
+)
 
- app.get('/register', register.form)
- app.post('/register', register.submit)
+app.get('/register', register.form)
+app.post('/register', register.submit)
 
+app.get('/login', login.form)
+app.post('/login', login.submit)
+app.get('/logout', login.logout)  
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
