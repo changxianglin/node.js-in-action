@@ -1,0 +1,19 @@
+{
+  "name": "reset-shop",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API Tutorial Project(build a simple shop API)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "xianglin <281532612@qq.com> (zhourong.clube)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
