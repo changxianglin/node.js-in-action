@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.6.1",
-    "hogan.js": "^3.0.2"
+    "hogan.js": "^3.0.2",
+    "pug": "^2.0.3"
   }
 }
